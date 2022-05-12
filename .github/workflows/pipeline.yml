@@ -22,7 +22,7 @@ jobs:
 
       - if: ${{ steps.cache-npm.outputs.cache-hit == false }}
         name: List the state of node modules
-        continue-on-error: true
+        continue-on-error: false
         run: npm list
 
       - name: Install dependencies
@@ -33,3 +33,6 @@ jobs:
 
       - name: Test
         run: npm run test
+
+      - name: deploy page
+        run: npm run deploy:page
