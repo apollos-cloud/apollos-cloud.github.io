@@ -1,0 +1,24 @@
+name: Deploy github page
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm i
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy github page🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
