@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@v2
-      - uses: fregante/setup-git-user@v1
 
       - name: Cache node modules
         id: cache-npm
@@ -37,4 +35,7 @@ jobs:
         run: npm run test
 
       - name: deploy page
+        uses: de-vri-es/setup-git-credentials@v2
+        with:
+          credentials: ${{secrets.GIT_CREDENTIALS}}
         run: npm run deploy:page
