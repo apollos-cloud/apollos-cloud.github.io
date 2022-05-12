@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://www.apollos-cloud.xyz",
+  "homepage": "apollos-cloud.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -20,7 +20,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy:page": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
