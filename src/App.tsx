@@ -1,11 +1,8 @@
-import React from 'react';
+import { Route, Routes } from "react-router-dom"
+import {pagesRoute} from "./pages"
 
-function App() {
-  return (
-    <div>
-      IN PROGRESS
-    </div>
-  );
-}
-
-export default App;
+export const App = () => <Routes>
+  {
+    pagesRoute.map(({ Page, path }) => <Route path={path} key={path} element={<Page />}/>)
+  }
+</Routes>
