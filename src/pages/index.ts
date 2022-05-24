@@ -12,35 +12,33 @@ export interface PageRoute {
 }
 
 export const presentationRoutes: PageRoute[] = [
-    {
-        path: '/',
-        Page: Intro
-      },
-      {
-        path: '/contact',
-        Page: Contact
-      },
-      {
-        path: '/workflow',
-        Page: WorkFlow
-      },
-      {
-        path: '/client',
-        Page: Client
-      }
-]
+  {
+    path: '/',
+    Page: Intro
+  },
+  {
+    path: '/contact',
+    Page: Contact
+  },
+  {
+    path: '/workflow',
+    Page: WorkFlow
+  },
+  {
+    path: '/client',
+    Page: Client
+  }
+];
 
 export const errorRoutes: PageRoute[] = [
-    {
-        path: '*',
-        Page: NotFound
-      },
-]
-
+  {
+    path: '*',
+    Page: NotFound
+  }
+];
 
 export const pagesRoute: PageRoute[] = [
-    ...presentationRoutes,
-    ...errorRoutes,
-    ...articlesPageRoute,
-  
+  ...presentationRoutes,
+  ...errorRoutes,
+  ...articlesPageRoute
 ];
