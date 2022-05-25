@@ -10,8 +10,8 @@ export const Footer = () => (
     <Typography variant="body1">My sticky footer can be found here.</Typography>
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://apollos-cloud.xyz">
+        apollos-cloud.xyz
       </Link>{' '}
       {new Date('2022').getFullYear()}
       {'.'}

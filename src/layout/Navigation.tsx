@@ -5,7 +5,7 @@ import {
   Typography,
   Box,
   IconButton,
-  Menu,
+  Menu as MaterialMenu,
   MenuItem,
   Button
 } from '@mui/material';
@@ -15,14 +15,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { Menu } from '../components/Menu';
 
 const StyledLink = styled(Link)(() => ({ textDecoration: 'none' }));
 
-const paths = presentationRoutes
-  .map(({ path }) => path)
-  .filter(
-    (path) => !path.toLocaleLowerCase().includes('article') && path !== '/'
-  );
+const paths = presentationRoutes.filter(({ path }) => path !== '/');
 
 export const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -70,7 +67,7 @@ export const Navigation = () => {
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
+              <MaterialMenu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
@@ -88,7 +85,7 @@ export const Navigation = () => {
                   display: { xs: 'block', md: 'none' }
                 }}
               >
-                {paths.map((path) => (
+                {paths.map(({ path }) => (
                   <MenuItem key={path} onClick={handleCloseNavMenu}>
                     <StyledLink to={path}>
                       <Typography textAlign="center">
@@ -97,7 +94,7 @@ export const Navigation = () => {
                     </StyledLink>
                   </MenuItem>
                 ))}
-              </Menu>
+              </MaterialMenu>
             </Box>
           </Link>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -120,16 +117,28 @@ export const Navigation = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {paths.map((path) => (
-              <StyledLink to={path} key={path}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {path.slice(1)}
-                </Button>
-              </StyledLink>
-            ))}
+            {paths.map(({ path, routes }) =>
+              routes ? (
+                <Menu
+                  name={path.substring(1, path.lastIndexOf('/'))}
+                  key={path}
+                  items={routes.map((route) => (
+                    <StyledLink to={path + route.path} key={path + route.path}>
+                      {route.Page ? route.Page.name : ''}
+                    </StyledLink>
+                  ))}
+                />
+              ) : (
+                <StyledLink to={path} key={path}>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    {path.slice(1)}
+                  </Button>
+                </StyledLink>
+              )
+            )}
           </Box>
         </Toolbar>
       </Container>

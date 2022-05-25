@@ -1,13 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 import { Layout } from './layout/Layout';
-import { pagesRoute } from './pages';
+import { appRoutes } from './pages';
+console.log('APP ROUTES ', appRoutes);
 
 export const App = () => (
   <Layout>
-    <Routes>
-      {pagesRoute.map(({ Page, path }) => (
-        <Route path={path} key={path} element={<Page />} />
-      ))}
-    </Routes>
+    <Routes>{appRoutes}</Routes>
   </Layout>
 );
