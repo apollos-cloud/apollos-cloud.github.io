@@ -17,3 +17,12 @@ body {
   width: inherit;
   height: inherit;
 }
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url('./fonts/Karla-Regular.ttf') format('truetype');
+}
+
+* {
+  font-family: MyFont;
+}
