@@ -1,11 +1,11 @@
 import { FC, ReactNode } from 'react';
 import { Route } from 'react-router-dom';
-import { articlesPageRoute } from './articles';
-import { Client } from './Client';
-import { Contact } from './Contact';
-import { Intro } from './Intro';
-import { NotFound } from './NotFound';
-import { WorkFlow } from './WorkFlow';
+import { articlesPageRoute } from './pages/articles';
+import { Client } from './pages/Client';
+import { Contact } from './pages/Contact';
+import { Intro } from './pages/Intro';
+import { NotFound } from './pages/NotFound';
+import { WorkFlow } from './pages/WorkFlow';
 
 export interface PageRoute {
   path: string;

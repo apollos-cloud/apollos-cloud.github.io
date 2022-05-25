@@ -10,7 +10,7 @@ import {
   Button
 } from '@mui/material';
 import { useState, MouseEvent } from 'react';
-import { presentationRoutes } from '../pages/';
+import { presentationRoutes } from '../routes';
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';

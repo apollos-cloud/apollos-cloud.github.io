@@ -1,4 +1,4 @@
-import { PageRoute } from '..';
+import { PageRoute } from '../../routes';
 import { Article1 } from './Article1';
 import { Article2 } from './Article2';
 
