@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f47d6ba.css",
+    "main.css": "/static/css/main.ff4a8ac8.css",
     "main.js": "/static/js/main.b7f7a1b7.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/Karla-Regular.ttf": "/static/media/Karla-Regular.6d937d4fa9dc8485f28b.ttf",
     "index.html": "/index.html",
-    "main.8f47d6ba.css.map": "/static/css/main.8f47d6ba.css.map",
+    "main.ff4a8ac8.css.map": "/static/css/main.ff4a8ac8.css.map",
     "main.b7f7a1b7.js.map": "/static/js/main.b7f7a1b7.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f47d6ba.css",
+    "static/css/main.ff4a8ac8.css",
     "static/js/main.b7f7a1b7.js"
   ]
 }
