@@ -36,10 +36,6 @@ export const presentationRoutes: PageRoute[] = [
     Page: Intro
   },
   {
-    path: '/contact',
-    Page: Contact
-  },
-  {
     path: '/workflow',
     Page: WorkFlow
   },
@@ -50,6 +46,10 @@ export const presentationRoutes: PageRoute[] = [
   {
     path: '/articles/:article',
     routes: articlesPageRoute
+  },
+  {
+    path: '/contact',
+    Page: Contact
   }
 ];
 
