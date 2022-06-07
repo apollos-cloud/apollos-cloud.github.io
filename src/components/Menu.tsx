@@ -38,6 +38,7 @@ export const Menu: FC<MenuProps> = ({ name, items }) => {
         MenuListProps={{
           'aria-labelledby': 'basic-button'
         }}
+        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}
       >
         {items.map((item) => (
           <MenuItem

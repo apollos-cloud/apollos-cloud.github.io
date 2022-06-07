@@ -18,6 +18,10 @@ body {
   height: inherit;
 }
 
+#content-layout {
+  min-height: 80%;
+}
+
 @font-face {
   font-family: 'MyFont';
   src: local('MyFont'), url('./fonts/Karla-Regular.ttf') format('truetype');

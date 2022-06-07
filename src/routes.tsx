@@ -44,7 +44,7 @@ export const presentationRoutes: PageRoute[] = [
     Page: Client
   },
   {
-    path: '/articles/:article',
+    path: '/:articles',
     routes: articlesPageRoute
   },
   {

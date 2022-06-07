@@ -85,11 +85,13 @@ export const Navigation = () => {
                   display: { xs: 'block', md: 'none' }
                 }}
               >
-                {paths.map(({ path }) => (
+                {paths.map(({ path, routes }) => (
                   <MenuItem key={path} onClick={handleCloseNavMenu}>
                     <StyledLink to={path}>
                       <Typography textAlign="center">
-                        {path.slice(1)}
+                        {routes
+                          ? path.substring(path.lastIndexOf(':') + 1)
+                          : path.slice(1)}
                       </Typography>
                     </StyledLink>
                   </MenuItem>
@@ -120,7 +122,7 @@ export const Navigation = () => {
             {paths.map(({ path, routes }) =>
               routes ? (
                 <Menu
-                  name={path.substring(1, path.lastIndexOf('/'))}
+                  name={path.substring(path.lastIndexOf(':') + 1)}
                   key={path}
                   items={routes.map((route) => (
                     <StyledLink to={path + route.path} key={path + route.path}>
@@ -132,7 +134,11 @@ export const Navigation = () => {
                 <StyledLink to={path} key={path}>
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
+                    sx={{
+                      my: 2,
+                      color: 'white',
+                      display: { xs: 'block', md: 'block' }
+                    }}
                   >
                     {path.slice(1)}
                   </Button>
