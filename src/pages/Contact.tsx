@@ -1,21 +1,33 @@
 import {
   Box,
   Grid,
-  TextField,
   Typography,
-  InputLabel,
-  Button
+  Button,
+  FormControl,
+  InputLabel
 } from '@mui/material';
 import { Page } from './Page';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
-import styled from '@emotion/styled';
-
-const width = 400;
-const StyledTextField = styled(TextField)(() => ({ width, marginBottom: 25 }));
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { useState } from 'react';
 
 export const Contact = () => {
-  const onSubmit = () => {
+  const [form, setForm] = useState({
+    name: '',
+    subject: '',
+    email: '',
+    message: ''
+  });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('CHANGE ', e.target.name);
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+  const onSubmit = (e: any) => {
     console.log('SSS ', document.getElementsByName('client'));
+
+    e.preventDefault();
   };
 
   return (
@@ -51,45 +63,59 @@ export const Contact = () => {
           </Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item sx={{ width: '100%' }}>
           <Box
+            alignItems={'center'}
+            justifyItems={'center'}
             component="form"
-            noValidate
             autoComplete="off"
-            sx={{
-              width,
-              maxWidth: '100%'
-            }}
           >
-            <StyledTextField
-              label="Full Name"
-              variant="standard"
-              name="client[name]"
-            />
-            <StyledTextField
-              label="Subject"
-              variant="standard"
-              name="client[subject]"
-            />
-            <StyledTextField
-              label="Email"
-              variant="standard"
-              type="email"
-              name="client[email]"
-            />
-            <InputLabel>Content</InputLabel>
-            <TextareaAutosize
-              maxRows={10}
-              aria-label="maximum height"
-              placeholder="Message"
-              defaultValue=""
-              style={{ width, height: 400 }}
-              name="client[content]"
-            />
+            <FormControl fullWidth margin="normal">
+              <InputLabel htmlFor="name">Full Name</InputLabel>
+              <OutlinedInput
+                onChange={onChange}
+                name="name"
+                label="Full Name"
+                value={form.name}
+              />
+            </FormControl>
+            <FormControl fullWidth margin="normal">
+              <InputLabel htmlFor="subject">Subject</InputLabel>
+              <OutlinedInput
+                onChange={onChange}
+                name="subject"
+                label="Subject"
+                value={form.subject}
+              />
+            </FormControl>
+            <FormControl fullWidth margin="normal">
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <OutlinedInput
+                onChange={onChange}
+                type="email"
+                name="email"
+                label="Email"
+                value={form.email}
+              />
+            </FormControl>
+            <FormControl fullWidth margin="normal">
+              <InputLabel htmlFor="content">Content</InputLabel>
+              <OutlinedInput
+                onChange={onChange}
+                label="Content"
+                type={'TextareaAutosize'}
+                name="content"
+                sx={{ height: 400 }}
+                value={form.message}
+              />
+            </FormControl>
+
             <Button
               variant="contained"
               color="primary"
               type="submit"
+              size="large"
+              fullWidth
               onClick={onSubmit}
             >
               Submit

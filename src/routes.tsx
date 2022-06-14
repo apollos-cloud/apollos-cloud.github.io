@@ -5,6 +5,7 @@ import { Client } from './pages/Client';
 import { Contact } from './pages/Contact';
 import { Intro } from './pages/Intro';
 import { NotFound } from './pages/NotFound';
+import { servicesPageRoute } from './pages/services';
 import { WorkFlow } from './pages/WorkFlow';
 
 export interface PageRoute {
@@ -42,6 +43,10 @@ export const presentationRoutes: PageRoute[] = [
   {
     path: '/client',
     Page: Client
+  },
+  {
+    path: '/:services',
+    routes: servicesPageRoute
   },
   {
     path: '/:articles',
