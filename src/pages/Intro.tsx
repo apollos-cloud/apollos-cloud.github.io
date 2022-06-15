@@ -1,7 +1,7 @@
-import { Page } from "./Page";
+import { Page } from './Page';
 
-export const Intro = () => <Page title="intro">
-    <div>
-        Intro
-    </div>
-</Page>
+export const Intro = () => (
+  <Page title="intro">
+    <div>Intro</div>
+  </Page>
+);
