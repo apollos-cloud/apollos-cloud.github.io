@@ -35,7 +35,7 @@ export const Navigation = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters >
+        <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -126,7 +126,7 @@ export const Navigation = () => {
                   key={path}
                   items={routes.map((route) => (
                     <StyledLink to={path + route.path} key={path + route.path}>
-                      {route.Page ? route.Page.name : ''}
+                      {route.Page ? route.path : ''}
                     </StyledLink>
                   ))}
                 />

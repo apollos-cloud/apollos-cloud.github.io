@@ -8,7 +8,6 @@ require('dotenv').config();
 
 module.exports = {
   entry: './src/index.tsx',
-  devtool: 'inline-source-map',
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
