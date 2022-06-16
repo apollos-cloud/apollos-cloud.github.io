@@ -10,6 +10,16 @@ import { Page } from './Page';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState } from 'react';
 
+const sendmail = require('sendmail')({
+  logger: {
+    debug: console.log,
+    info: console.info,
+    warn: console.warn,
+    error: console.error
+  },
+  silent: false
+});
+
 export const Contact = () => {
   const [form, setForm] = useState({
     name: '',
@@ -18,16 +28,27 @@ export const Contact = () => {
     message: ''
   });
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('CHANGE ', e.target.name);
+    console.log('ONCHANGE ', e.target.value);
     setForm({
       ...form,
       [e.target.name]: e.target.value
     });
   };
   const onSubmit = (e: any) => {
-    console.log('SSS ', document.getElementsByName('client'));
-
     e.preventDefault();
+
+    sendmail(
+      {
+        from: 'info@apollos-cloud.xyz',
+        to: 'omri.wallach@apollos-cloud.xyz',
+        subject: form.subject,
+        html: form.message
+      },
+      function (err: { stack: any }, reply: any) {
+        console.log(err && err.stack);
+        console.dir(reply);
+      }
+    );
   };
 
   return (
@@ -69,6 +90,8 @@ export const Contact = () => {
             justifyItems={'center'}
             component="form"
             autoComplete="off"
+            action="mailto:omri.wallach@apollos-cloud.xyz"
+            method="post"
           >
             <FormControl fullWidth margin="normal">
               <InputLabel htmlFor="name">Full Name</InputLabel>
