@@ -1,14 +1,19 @@
 import { PageRoute } from '../../routes';
-import { Article1 } from './Article1';
-import { Article2 } from './Article2';
+import { ProjectManagement } from './ProjectManagement';
+import { AgileEnvironment } from './AgileEnvironment';
+import { TeamManagement } from './TeamManagement';
 
 export const articlesPageRoute: PageRoute[] = [
   {
-    path: 'Article1',
-    Page: Article1
+    path: 'Project Management',
+    Page: ProjectManagement
   },
   {
-    path: 'Article2',
-    Page: Article2
+    path: 'Agile Environment',
+    Page: AgileEnvironment
+  },
+  {
+    path: 'Team Management',
+    Page: TeamManagement
   }
 ].map((route) => ({ ...route, path: `/${route.path}` }));
