@@ -15,7 +15,8 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, 'public'),
     compress: true,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   module: {
     rules: [

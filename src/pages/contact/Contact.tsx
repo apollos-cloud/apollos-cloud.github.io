@@ -4,9 +4,12 @@ import {
   Typography,
   Button,
   FormControl,
-  InputLabel
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent
 } from '@mui/material';
-import { Page } from './Page';
+import { Page } from '../Page';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState } from 'react';
 
@@ -20,19 +23,29 @@ const sendmail = require('sendmail')({
   silent: false
 });
 
+enum DEPARTMENT {
+  INFO = 'info',
+  SUPPORT = 'support',
+  HR = 'hr',
+  SALES = 'sales'
+}
+
 export const Contact = () => {
+  const [department, setDepartment] = useState<DEPARTMENT | undefined>();
   const [form, setForm] = useState({
     name: '',
     subject: '',
     email: '',
     message: ''
   });
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('ONCHANGE ', e.target.value);
+  const onChangeMessageValues = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
     });
+  };
+  const onChangeDepartment = (e: SelectChangeEvent<DEPARTMENT>) => {
+    setDepartment(e.target.value as DEPARTMENT);
   };
   const onSubmit = (e: any) => {
     e.preventDefault();
@@ -96,7 +109,7 @@ export const Contact = () => {
             <FormControl fullWidth margin="normal">
               <InputLabel htmlFor="name">Full Name</InputLabel>
               <OutlinedInput
-                onChange={onChange}
+                onChange={onChangeMessageValues}
                 name="name"
                 label="Full Name"
                 value={form.name}
@@ -105,16 +118,32 @@ export const Contact = () => {
             <FormControl fullWidth margin="normal">
               <InputLabel htmlFor="subject">Subject</InputLabel>
               <OutlinedInput
-                onChange={onChange}
+                onChange={onChangeMessageValues}
                 name="subject"
                 label="Subject"
                 value={form.subject}
               />
             </FormControl>
             <FormControl fullWidth margin="normal">
+              <InputLabel htmlFor="department">Department</InputLabel>
+              <Select
+                name="department"
+                value={department}
+                defaultValue={undefined}
+                label="Department"
+                onChange={onChangeDepartment}
+              >
+                {Object.values(DEPARTMENT).map((department) => (
+                  <MenuItem value={department} key={department}>
+                    {department}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl fullWidth margin="normal">
               <InputLabel htmlFor="email">Email</InputLabel>
               <OutlinedInput
-                onChange={onChange}
+                onChange={onChangeMessageValues}
                 type="email"
                 name="email"
                 label="Email"
@@ -124,7 +153,7 @@ export const Contact = () => {
             <FormControl fullWidth margin="normal">
               <InputLabel htmlFor="content">Content</InputLabel>
               <OutlinedInput
-                onChange={onChange}
+                onChange={onChangeMessageValues}
                 label="Content"
                 type={'TextareaAutosize'}
                 name="content"
