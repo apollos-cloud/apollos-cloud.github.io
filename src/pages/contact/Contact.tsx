@@ -12,6 +12,7 @@ import {
 import { Page } from '../Page';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState } from 'react';
+import { EmailAdapter } from './EmailAdapter';
 
 const sendmail = require('sendmail')({
   logger: {
@@ -28,6 +29,17 @@ enum DEPARTMENT {
   SUPPORT = 'support',
   HR = 'hr',
   SALES = 'sales'
+}
+
+export interface Message {
+  name: string;
+  subject: string;
+  email: string;
+  message: string;
+}
+
+export interface EmailParams extends Message {
+  department: DEPARTMENT;
 }
 
 export const Contact = () => {
@@ -47,21 +59,15 @@ export const Contact = () => {
   const onChangeDepartment = (e: SelectChangeEvent<DEPARTMENT>) => {
     setDepartment(e.target.value as DEPARTMENT);
   };
-  const onSubmit = (e: any) => {
+  const onSubmit = async (e: any) => {
     e.preventDefault();
 
-    sendmail(
-      {
-        from: 'info@apollos-cloud.xyz',
-        to: 'omri.wallach@apollos-cloud.xyz',
-        subject: form.subject,
-        html: form.message
-      },
-      function (err: { stack: any }, reply: any) {
-        console.log(err && err.stack);
-        console.dir(reply);
-      }
-    );
+    const params: EmailParams = {
+      ...form,
+      department: department || DEPARTMENT.INFO
+    };
+
+    await EmailAdapter.getInstance().send(params);
   };
 
   return (

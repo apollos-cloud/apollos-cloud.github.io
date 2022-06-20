@@ -3,6 +3,7 @@ const buildPath = path.resolve(__dirname, 'build');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { cwd } = require('process');
 
 require('dotenv').config();
 
@@ -45,7 +46,17 @@ module.exports = {
       util: require.resolve('util/'),
       crypto: require.resolve('crypto-browserify'),
       os: require.resolve('os-browserify/browser'),
-      assert: require.resolve('assert/')
+      assert: require.resolve('assert/'),
+      path: require.resolve('path-browserify')
+    },
+    preferRelative: true,
+    alias: {
+      model: path.resolve(__dirname, 'node_modules/sib-api-v3-sdk/src/model'),
+      ApiClient: path.resolve(
+        __dirname,
+        'node_modules/sib-api-v3-sdk/src/ApiClient'
+      ),
+      '~/*': path.resolve(__dirname, 'src/')
     }
   },
   output: {
