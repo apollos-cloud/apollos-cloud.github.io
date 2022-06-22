@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { Route } from 'react-router-dom';
 import { articlesPageRoute } from './pages/articles';
 import { Client } from './pages/Client';
-import { Contact } from './pages/contact/Contact';
+import { Contact } from './pages/Contact';
 import { Intro } from './pages/Intro';
 import { NotFound } from './pages/NotFound';
 import { servicesPageRoute } from './pages/services';
