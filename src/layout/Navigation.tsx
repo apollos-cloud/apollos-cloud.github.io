@@ -31,6 +31,8 @@ export const Navigation = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+  const createSubMenuName = (name: string) =>
+    name.substring(name.lastIndexOf('/') + 1);
 
   return (
     <AppBar position="static">
@@ -89,9 +91,7 @@ export const Navigation = () => {
                   <MenuItem key={path} onClick={handleCloseNavMenu}>
                     <StyledLink to={path}>
                       <Typography textAlign="center">
-                        {routes
-                          ? path.substring(path.lastIndexOf(':') + 1)
-                          : path.slice(1)}
+                        {routes ? createSubMenuName(path) : path.slice(1)}
                       </Typography>
                     </StyledLink>
                   </MenuItem>
@@ -122,7 +122,7 @@ export const Navigation = () => {
             {paths.map(({ path, routes }) =>
               routes ? (
                 <Menu
-                  name={path.substring(path.lastIndexOf(':') + 1)}
+                  name={createSubMenuName(path)}
                   key={path}
                   items={routes.map((route) => (
                     <StyledLink to={path + route.path} key={path + route.path}>
