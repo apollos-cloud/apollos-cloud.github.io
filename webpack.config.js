@@ -52,7 +52,8 @@ module.exports = {
       crypto: require.resolve('crypto-browserify'),
       os: require.resolve('os-browserify/browser'),
       assert: require.resolve('assert/'),
-      path: require.resolve('path-browserify')
+      path: require.resolve('path-browserify'),
+      buffer: require.resolve('buffer/')
     },
     alias: {
       '~/*': path.resolve(__dirname, 'src/')
@@ -76,7 +77,6 @@ module.exports = {
     }),
     new CompressionPlugin(),
     new webpack.ProvidePlugin({
-      process: 'process/browser',
       Buffer: ['buffer', 'Buffer']
     })
   ]
