@@ -17,7 +17,12 @@ module.exports = {
     static: path.join(__dirname, 'public'),
     compress: true,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    }
   },
   module: {
     rules: [
@@ -49,13 +54,7 @@ module.exports = {
       assert: require.resolve('assert/'),
       path: require.resolve('path-browserify')
     },
-    preferRelative: true,
     alias: {
-      model: path.resolve(__dirname, 'node_modules/sib-api-v3-sdk/src/model'),
-      ApiClient: path.resolve(
-        __dirname,
-        'node_modules/sib-api-v3-sdk/src/ApiClient'
-      ),
       '~/*': path.resolve(__dirname, 'src/')
     }
   },

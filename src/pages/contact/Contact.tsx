@@ -14,16 +14,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState } from 'react';
 import { EmailAdapter } from './EmailAdapter';
 
-const sendmail = require('sendmail')({
-  logger: {
-    debug: console.log,
-    info: console.info,
-    warn: console.warn,
-    error: console.error
-  },
-  silent: false
-});
-
 enum DEPARTMENT {
   INFO = 'info',
   SUPPORT = 'support',
@@ -61,13 +51,14 @@ export const Contact = () => {
   };
   const onSubmit = async (e: any) => {
     e.preventDefault();
+    console.log('ENV ', process.env.EMAIL_API_KEY);
 
     const params: EmailParams = {
       ...form,
       department: department || DEPARTMENT.INFO
     };
 
-    await EmailAdapter.getInstance().send(params);
+    await EmailAdapter.getInstance().sendEmail(params);
   };
 
   return (
