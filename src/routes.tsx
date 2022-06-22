@@ -45,11 +45,11 @@ export const presentationRoutes: PageRoute[] = [
     Page: Client
   },
   {
-    path: '/:services',
+    path: '/services',
     routes: servicesPageRoute
   },
   {
-    path: '/:articles',
+    path: '/articles',
     routes: articlesPageRoute
   },
   {

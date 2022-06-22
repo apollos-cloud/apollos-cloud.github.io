@@ -62,7 +62,8 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: buildPath,
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    publicPath: '/'
   },
   optimization: {
     runtimeChunk: 'single'
