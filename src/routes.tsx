@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Route } from 'react-router-dom';
 import { articlesPageRoute } from './pages/articles';
-import { Client } from './pages/Client';
+import { Client } from './pages/clients/Clients';
 import { Contact } from './pages/Contact';
 import { Intro } from './pages/Intro';
 import { NotFound } from './pages/NotFound';
@@ -41,7 +41,7 @@ export const presentationRoutes: PageRoute[] = [
     Page: WorkFlow
   },
   {
-    path: '/client',
+    path: '/Our-Clients',
     Page: Client
   },
   {

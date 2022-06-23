@@ -126,7 +126,9 @@ export const Navigation = () => {
                   key={path}
                   items={routes.map((route) => (
                     <StyledLink to={path + route.path} key={path + route.path}>
-                      {route.Page ? route.path.substring(1) : ''}
+                      {route.Page
+                        ? route.path.substring(1).replaceAll('-', ' ')
+                        : ''}
                     </StyledLink>
                   ))}
                 />
@@ -140,7 +142,7 @@ export const Navigation = () => {
                       display: { xs: 'block', md: 'block' }
                     }}
                   >
-                    {path.slice(1)}
+                    {path.slice(1).replaceAll('-', ' ')}
                   </Button>
                 </StyledLink>
               )

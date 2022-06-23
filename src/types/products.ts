@@ -1,0 +1,1 @@
+export type ProductType = 'PaaS' | 'SaaS' | 'IaaS' | 'DaaS';
