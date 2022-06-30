@@ -15,8 +15,6 @@ const alias = {};
 
 rootDirs.forEach((dir) => (alias[dir] = srcPath + ('/' + dir)));
 
-console.log('ALIAS ', alias);
-
 require('dotenv').config();
 
 module.exports = {
@@ -42,6 +40,10 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'less-loader']
       },
       {
         test: /\.less$/i,

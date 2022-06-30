@@ -1,1 +1,6 @@
-export type ProductType = 'PaaS' | 'SaaS' | 'IaaS' | 'DaaS' | "Service provider";
+export type ProductType =
+  | 'PaaS'
+  | 'SaaS'
+  | 'IaaS'
+  | 'DaaS'
+  | 'Service provider';

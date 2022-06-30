@@ -1,31 +1,50 @@
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import styled from '@emotion/styled';
 import FloatingWhatsApp from 'react-floating-whatsapp';
-
-const StyleContainer = styled(Container)(() => ({ margin: 'auto' }));
+import { Grid } from '@mui/material';
+import { SocialMediaIcon, companySocialLinks } from 'components/SocialIcon';
 
 export const Footer = () => (
-  <StyleContainer>
-    <Typography variant="body1">My sticky footer can be found here.</Typography>
-    <Typography variant="body2" color="text.secondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://apollos-cloud.xyz">
-        apollos-cloud.xyz
-      </Link>{' '}
-      {new Date('2022').getFullYear()}
-      {'.'}
-    </Typography>
-    <FloatingWhatsApp
-      phoneNumber="+491777198008"
-      accountName="Apollo`s Cloud"
-      statusMessage="We will get back to you as soon as possible"
-      chatMessage="How can we help you? leave us your thoughts!"
-      placeholder="Your message..."
-      avatar={undefined}
-      notification={true}
-      notificationSound={true}
-    />
-  </StyleContainer>
+  <Grid container>
+    <Grid item container md={2}>
+      <Grid container>
+        <Typography variant="h5" color="text.primary">
+          Find us on social media!
+        </Typography>
+      </Grid>
+      <Grid container>
+        <SocialMediaIcon {...companySocialLinks} />
+      </Grid>
+    </Grid>
+    <Grid item md={8} sx={{ textAlign: 'center' }}>
+      <Typography variant="body1">
+        Designed and developed by{' '}
+        <Link color="inherit" href="https://apollos-cloud.xyz">
+          Omri Wallach CEO & Software Architect at Apollo`s Cloud
+        </Link>
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        {'Copyright © '}
+        <Link
+          color="inherit"
+          href="https://www.linkedin.com/in/omri-wallach-19989a113/"
+        >
+          Apollo`s Cloud
+        </Link>{' '}
+        {new Date('2022').getFullYear()}
+        {'.'}
+      </Typography>
+    </Grid>
+    <Grid item md={2}>
+      <FloatingWhatsApp
+        phoneNumber="+491777198008"
+        accountName="Apollo`s Cloud"
+        statusMessage="We will get back to you as soon as possible"
+        chatMessage="How can we help you? leave us your thoughts!"
+        placeholder="Your message..."
+        avatar={undefined}
+        notification={true}
+      />
+    </Grid>
+  </Grid>
 );
