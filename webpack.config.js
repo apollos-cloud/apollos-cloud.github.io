@@ -3,7 +3,19 @@ const buildPath = path.resolve(__dirname, 'build');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { cwd } = require('process');
+const { readdirSync } = require('fs');
+
+const getDirectories = (source) =>
+  readdirSync(source, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+const srcPath = path.resolve(__dirname, 'src');
+const rootDirs = getDirectories(srcPath);
+const alias = {};
+
+rootDirs.forEach((dir) => (alias[dir] = srcPath + ('/' + dir)));
+
+console.log('ALIAS ', alias);
 
 require('dotenv').config();
 
@@ -34,6 +46,11 @@ module.exports = {
       {
         test: /\.less$/i,
         use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack']
       }
     ]
   },
@@ -53,11 +70,10 @@ module.exports = {
       os: require.resolve('os-browserify/browser'),
       assert: require.resolve('assert/'),
       path: require.resolve('path-browserify'),
-      buffer: require.resolve('buffer/')
+      buffer: require.resolve('buffer/'),
+      browser: require.resolve('browser')
     },
-    alias: {
-      '~/*': path.resolve(__dirname, 'src/')
-    }
+    alias
   },
   output: {
     filename: '[name].js',

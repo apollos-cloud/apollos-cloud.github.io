@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "outDir": "./build",
     "sourceMap": true,
@@ -18,8 +19,13 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "paths": {
-      "~/*": ["./src/*"]
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "layout/*": ["src/layout/*"],
+      "pages/*": ["src/pages/*"],
+      "types/*": ["src/types/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

@@ -15,7 +15,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { Menu } from '../components/Menu';
+import { Menu } from 'components/Menu';
+import { ApolloCloudLogo } from 'layout/ApolloCloudLogo';
 
 const StyledLink = styled(Link)(() => ({ textDecoration: 'none' }));
 
@@ -38,7 +39,6 @@ export const Navigation = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -51,10 +51,11 @@ export const Navigation = () => {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              position: 'relative'
             }}
           >
-            LOGO
+            <ApolloCloudLogo />
           </Typography>
 
           <Link to="/">

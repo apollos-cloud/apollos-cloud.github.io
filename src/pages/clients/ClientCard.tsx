@@ -9,10 +9,10 @@ import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
-import { ProductType } from '~/types/products';
+import { ProductType } from 'types/products';
+import { Technology } from 'types/technologies';
+import { Tags } from 'components/Tags';
 
 export interface CompanySize {
   size: 'small' | 'meduim' | 'large';
@@ -28,7 +28,7 @@ export interface ClientCard {
   productType: ProductType[];
   imageSrc: string;
   description: string;
-  tags: string[];
+  tags: Technology[];
   companySize: CompanySize;
 }
 
@@ -67,12 +67,7 @@ export const ClientCard: FC<ClientCard> = ({
               <CategoryOutlinedIcon />
             </ListItemIcon>
             <ListItemText>
-              Product type:
-              <Stack direction="row" spacing={1}>
-                {productType.map((type) => (
-                  <Chip label={type} variant="outlined" />
-                ))}
-              </Stack>
+              Product type: <Tags tags={productType} />
             </ListItemText>
           </ListItem>
 
@@ -89,11 +84,7 @@ export const ClientCard: FC<ClientCard> = ({
         <Typography variant="body1" color="text.secondary">
           {description}
         </Typography>
-        <Stack direction="row" spacing={1}>
-          {tags.map((tag) => (
-            <Chip label={tag} variant="outlined" />
-          ))}
-        </Stack>
+        <Tags tags={tags} />
       </CardContent>
       <CardActions>
         <Button size="small">
