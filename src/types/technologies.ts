@@ -40,10 +40,11 @@ export type Frontend =
   | 'Kendo'
   | 'Redux'
   | 'Mobx'
-  | 'React-intl';
+  | 'React-intl'
+  | "Responsive Design"
 export type CloudProvider = 'AWS' | 'Azure' | 'GCP' | 'Heroku';
 export type Compiler = 'Babel' | 'Webpack' | 'esBuild' | 'Polyfil';
-export type Library = '';
+export type Library = 'Socket.io';
 export type Linter = 'tsLint' | 'esLint' | 'prettier';
 export type ThirdPartyProvider = 'Twilo' | 'ChargeBee' | 'Wordpress Plugins';
 export type DevOps = 'Git' | 'Github Actions' | 'Jenkins' | 'CircleCI';

@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
@@ -13,9 +13,13 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { ProductType } from 'types/products';
 import { Technology } from 'types/technologies';
 import { Tags } from 'components/Tags';
+import { Job } from 'types/jobs';
+import KeyboardDoubleArrowDownOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowDownOutlined';
+import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined';
+import imageNotFoundReplacement from 'assets/images/imageNotFoundReplacement.png';
 
 export interface CompanySize {
-  size: 'small' | 'meduim' | 'large';
+  size: 'small' | 'medium' | 'large';
   numberOfEmployees: {
     from: number;
     to: number;
@@ -26,9 +30,10 @@ export interface ClientCard {
   name: string;
   location: string;
   productType: ProductType[];
-  imageSrc: string;
+  imageSrc?: string;
   description: string;
-  tags: Technology[];
+  technologyTags: Technology[];
+  workingTags: Job[];
   companySize: CompanySize;
 }
 
@@ -39,18 +44,41 @@ export const ClientCard: FC<ClientCard> = ({
   name,
   productType,
   companySize,
-  tags
+  technologyTags,
+  workingTags
 }) => {
+  const [expended, setExpended] = useState(true);
+  const [expendHeight, setExpendHeight] = useState<string | number>('auto');
+  const onToggleInformation = () => setExpended(!expended);
+
   return (
     <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.30)' }}>
       <CardMedia
         component="img"
         height="100%"
         width="100%"
-        image={imageSrc}
+        sx={{
+          minHeight: 100,
+          maxHeight: 100,
+          objectFit: 'contain'
+        }}
+        image={imageSrc ? imageSrc : imageNotFoundReplacement}
         alt={`${name}-company-logo`}
       />
-      <CardContent>
+      <CardContent
+        ref={(ref) => {
+          if (ref && expendHeight === 'auto') {
+            setExpendHeight(Number(ref?.clientHeight));
+            setExpended(false);
+          }
+        }}
+        style={{
+          transition: 'all 500ms ease-in-out',
+          height: expended ? expendHeight : 0,
+          overflowY: 'hidden',
+          minHeight: 300
+        }}
+      >
         <Typography gutterBottom variant="h4" component="div">
           {name}
         </Typography>
@@ -84,8 +112,30 @@ export const ClientCard: FC<ClientCard> = ({
         <Typography variant="body1" color="text.secondary">
           {description}
         </Typography>
-        <Tags tags={tags} />
+
+        <br />
+        <Typography variant="body2" color="text.secondary">
+          Responsibilities
+        </Typography>
+        <br />
+        <Tags tags={workingTags} />
+        <br />
+        <Typography variant="body2" color="text.secondary">
+          Technologies Related
+        </Typography>
+        <br />
+        <Tags tags={technologyTags} />
+        <br />
       </CardContent>
+      <br />
+      <Button variant="text" className={'bounce'} onClick={onToggleInformation}>
+        {!expended ? (
+          <KeyboardDoubleArrowDownOutlinedIcon />
+        ) : (
+          <KeyboardDoubleArrowUpOutlinedIcon />
+        )}
+      </Button>
+      <br />
       <CardActions>
         <Button size="small">
           <ShareOutlinedIcon />

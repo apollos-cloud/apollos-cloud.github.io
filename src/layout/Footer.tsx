@@ -16,7 +16,7 @@ export const Footer = () => (
         <SocialMediaIcon {...companySocialLinks} />
       </Grid>
     </Grid>
-    <Grid item md={8} sx={{ textAlign: 'center' }}>
+    <Grid item md={8} sx={{ textAlign: 'center', marginTop: 'auto' }}>
       <Typography variant="body1">
         Designed and developed by{' '}
         <Link color="inherit" href="https://apollos-cloud.xyz">
