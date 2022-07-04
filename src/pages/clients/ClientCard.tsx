@@ -10,7 +10,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
-import { ProductType } from 'types/products';
+import { ProductType, WorkingEnvironment } from 'types/products';
 import { Technology } from 'types/technologies';
 import { Tags } from 'components/Tags';
 import { Job } from 'types/jobs';
@@ -33,7 +33,8 @@ export interface ClientCard {
   imageSrc?: string;
   description: string;
   technologyTags: Technology[];
-  workingTags: Job[];
+  responsibilityTags: Job[];
+  workingEnvironmentTags: WorkingEnvironment[];
   companySize: CompanySize;
 }
 
@@ -45,7 +46,8 @@ export const ClientCard: FC<ClientCard> = ({
   productType,
   companySize,
   technologyTags,
-  workingTags
+  responsibilityTags,
+  workingEnvironmentTags
 }) => {
   const [expended, setExpended] = useState(true);
   const [expendHeight, setExpendHeight] = useState<string | number>('auto');
@@ -87,7 +89,7 @@ export const ClientCard: FC<ClientCard> = ({
             <ListItemIcon>
               <LocationOnOutlinedIcon />
             </ListItemIcon>
-            <ListItemText>location: {location}</ListItemText>
+            <ListItemText>Location: {location}</ListItemText>
           </ListItem>
 
           <ListItem>
@@ -105,7 +107,7 @@ export const ClientCard: FC<ClientCard> = ({
             </ListItemIcon>
             <ListItemText>
               Company size:{' '}
-              {`${companySize.size}, ${companySize.numberOfEmployees.from}-${companySize.numberOfEmployees.to}`}
+              {`${companySize.size}, ${companySize.numberOfEmployees.from} - ${companySize.numberOfEmployees.to} Employees`}
             </ListItemText>
           </ListItem>
         </List>
@@ -118,7 +120,13 @@ export const ClientCard: FC<ClientCard> = ({
           Responsibilities
         </Typography>
         <br />
-        <Tags tags={workingTags} />
+        <Tags tags={responsibilityTags} />
+        <br />
+        <Typography variant="body2" color="text.secondary">
+          Environment
+        </Typography>
+        <br />
+        <Tags tags={workingEnvironmentTags} />
         <br />
         <Typography variant="body2" color="text.secondary">
           Technologies Related

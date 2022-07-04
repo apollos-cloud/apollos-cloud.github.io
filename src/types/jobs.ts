@@ -7,7 +7,11 @@ export type Job =
   | 'Cloud Development'
   | 'Team Management'
   | 'Software Architecture'
-  | "Team Building"
-  | "Budget Management"
-  | "Stackholders Management"
-  | "Clients Management"
+  | 'Team Building'
+  | 'Budget Management'
+  | 'Stackholders Management'
+  | 'Clients Management'
+  | 'Leadership'
+  | 'Stakeholders Management'
+  | 'Team Building'
+  | 'Architecture Design';

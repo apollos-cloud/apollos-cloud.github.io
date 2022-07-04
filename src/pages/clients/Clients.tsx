@@ -4,8 +4,8 @@ import { ClientCard } from './ClientCard';
 import { Grid } from '@mui/material';
 
 export const Client = () => (
-  <Page title="Out Clients">
-    <Grid container spacing={2}>
+  <Page title="Our Clients">
+    <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
       {clientsData
         .map((data) => (
           <Grid item key={data.name}>

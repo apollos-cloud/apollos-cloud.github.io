@@ -3,4 +3,12 @@ export type ProductType =
   | 'SaaS'
   | 'IaaS'
   | 'DaaS'
-  | 'Service provider';
+  | 'Service provider'
+  | 'Open Source';
+
+export type WorkingEnvironment =
+  | 'Jira'
+  | 'Scrum'
+  | 'Kanban'
+  | 'Trello'
+  | 'Remote';
