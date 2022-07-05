@@ -1,6 +1,5 @@
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import FloatingWhatsApp from 'react-floating-whatsapp';
 import { Grid } from '@mui/material';
 import { SocialMediaIcon, companySocialLinks } from 'components/SocialIcon';
 
@@ -34,17 +33,6 @@ export const Footer = () => (
         {new Date('2022').getFullYear()}
         {'.'}
       </Typography>
-    </Grid>
-    <Grid item md={2}>
-      <FloatingWhatsApp
-        phoneNumber="+491777198008"
-        accountName="Apollo`s Cloud"
-        statusMessage="We will get back to you as soon as possible"
-        chatMessage="How can we help you? leave us your thoughts!"
-        placeholder="Your message..."
-        avatar={undefined}
-        notification={true}
-      />
     </Grid>
   </Grid>
 );

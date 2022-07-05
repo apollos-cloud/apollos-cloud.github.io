@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import { FC, ReactNode } from 'react';
+import FloatingWhatsApp from 'react-floating-whatsapp';
 import { Footer } from './Footer';
 import { Navigation } from './Navigation';
 
@@ -30,6 +31,15 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       >
         <Footer />
       </Grid>
+      <FloatingWhatsApp
+        phoneNumber="+491777198008"
+        accountName="Apollo`s Cloud"
+        statusMessage="We will get back to you as soon as possible"
+        chatMessage="How can we help you? leave us your thoughts!"
+        placeholder="Your message..."
+        avatar={'https://tibet.net/wp-content/uploads/2011/09/HHDL.png'}
+        notification={true}
+      />
     </Grid>
   );
 };
