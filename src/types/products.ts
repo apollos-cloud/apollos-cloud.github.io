@@ -11,4 +11,5 @@ export type WorkingEnvironment =
   | 'Scrum'
   | 'Kanban'
   | 'Trello'
-  | 'Remote';
+  | 'Remote'
+  | 'Agile';

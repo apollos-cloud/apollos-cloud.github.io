@@ -4,10 +4,12 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'assets/styles/index.less';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
-import { unstable_HistoryRouter as Router } from 'react-router-dom';
+import { unstable_HistoryRouter, HashRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory({ window });
+const Router =
+  process.env.NODE_ENV === 'development' ? unstable_HistoryRouter : HashRouter;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

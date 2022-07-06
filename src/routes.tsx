@@ -6,7 +6,7 @@ import { Contact } from './pages/Contact';
 import { Intro } from './pages/Intro';
 import { NotFound } from './pages/NotFound';
 import { servicesPageRoute } from './pages/services';
-import { WorkFlow } from './pages/WorkFlow';
+import { WorkFlow } from './pages/workflow/WorkFlow';
 
 export interface PageRoute {
   path: string;
