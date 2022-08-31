@@ -100,7 +100,7 @@ export const Timeline: FC<TimelineProps> = ({
             if (ref && i < checks.length && checks[i].yLimitCoordinate === 0) {
               setChecked(i, {
                 checked: false,
-                yLimitCoordinate: ref.getBoundingClientRect().top - 50
+                yLimitCoordinate: ref.getBoundingClientRect().top - 75
               });
             }
           }}

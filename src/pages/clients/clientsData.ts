@@ -1,11 +1,19 @@
 import { ClientCard } from './ClientCard';
+import EoiLogo from 'assets/images/companiesLogo/eoi.logo.png';
+import AdeccoLogo from 'assets/images/companiesLogo/addeco.logo.png';
+import AikuxLogo from 'assets/images/companiesLogo/aikux.logo.png';
+import JadudaLogo from 'assets/images/companiesLogo/jaduda.logo.png';
+import LendisLogo from 'assets/images/companiesLogo/lendis.logo.png';
+import VivyLogo from 'assets/images/companiesLogo/vivy.logo.png';
+import WebinyLogo from 'assets/images/companiesLogo/webiny.logo.png';
+import ChocoLogo from 'assets/images/companiesLogo/choco.logo.png';
 
 export const clientsData: ClientCard[] = [
   {
     name: 'EOI',
     location: 'Israel-TLV',
     productType: ['Service provider'],
-    imageSrc: 'https://eoi.co.il/wp-content/uploads/2011/07/logo.png',
+    imageSrc: EoiLogo,
     description:
       'creating responsive design for websites for mobile, tablet and pc & developing new features and customizing WordPress plugins and themes according to client specifications',
     technologyTags: [
@@ -78,7 +86,7 @@ export const clientsData: ClientCard[] = [
     name: 'Aikux - Migraven',
     location: 'Germany-Berlin',
     productType: ['DaaS', 'SaaS', 'PaaS'],
-    imageSrc: 'https://www.aikux.com/wp-content/uploads/2013/11/aikux.com_.png',
+    imageSrc: AikuxLogo,
     description:
       'Building a single page application, configure the frontend configurations files, creating data visualization, create and customize features in the company website.',
     technologyTags: [
@@ -119,7 +127,7 @@ export const clientsData: ClientCard[] = [
     name: 'Jaduda - Splicky',
     location: 'Germany-Berlin',
     productType: ['SaaS', 'PaaS'],
-    imageSrc: 'https://bit.ly/3nD8WN6',
+    imageSrc: JadudaLogo,
     description:
       'Migrating the legacy application from php to SPA based on react and node, Building and maintaining the Splicky application and improving the CI/CD and SLDC.',
     technologyTags: [
@@ -165,7 +173,7 @@ export const clientsData: ClientCard[] = [
     name: 'Vivy',
     location: 'Germany-Berlin',
     productType: ['PaaS'],
-    imageSrc: 'https://www.vivy.com/fileadmin/vivy-startpage/vivy_logo.svg',
+    imageSrc: VivyLogo,
     description:
       'Building an MVP based on micro frontend architecture for Vivy portal, with a mockup server based on node.js and GraphQL entrypoint, which was connected to Vivy  IOS and Android  applications, microservice backend on AWS.',
     technologyTags: [
@@ -208,7 +216,7 @@ export const clientsData: ClientCard[] = [
     name: 'UST / Adecco',
     location: 'Germany-Berlin',
     productType: ['PaaS'],
-    imageSrc: 'https://bit.ly/3y7rwS8',
+    imageSrc: AdeccoLogo,
     description:
       'Building a fault tolerance, scalable application, based on micro service architecture on azure cloud, the application was migrated from an HAPI framework into NEST in a TDD/BDD approach and integrating third parties services(API) and building the azure infrastructure , as well building  a client application based on react .',
     technologyTags: [
@@ -241,8 +249,7 @@ export const clientsData: ClientCard[] = [
     name: 'Lendis',
     location: 'Germany-Berlin',
     productType: ['PaaS', 'SaaS'],
-    imageSrc:
-      'https://www.lendis.io/wp-content/uploads/2021/04/lendis-logo_warm-grey.svg',
+    imageSrc: LendisLogo,
     description:
       'Designed and Built a backend application from scratch ,In Node based on AWS cloud as microservices architecture,REST API,event driven architecture. Connecting the application with third parties api providers and Internal backend in PHP Laravel And google cloud.The app includes different components from AWS such as lambda function,authorizer, dynamodb, api gateway,vpc,secret manager,SQS,SNS,step function.',
     technologyTags: [
@@ -294,7 +301,7 @@ export const clientsData: ClientCard[] = [
     name: 'Webiny',
     location: 'United Kingdom - London',
     productType: ['PaaS', 'SaaS', 'IaaS', 'Open Source'],
-    imageSrc: 'https://bit.ly/3bNYwax',
+    imageSrc: WebinyLogo,
     description:
       'Designed and Built a backend application , in Node.js with Pulumi infrastructure as Code with different resources on AWS like, secret manager, lambda function, step function, dynamodb,Api gateway,Cognito,VPC.\nDesign and Build a frontend application, in React, as Single page application with webpack, babel and more compiler optimization.',
     technologyTags: [
@@ -337,7 +344,7 @@ export const clientsData: ClientCard[] = [
     name: 'Choco',
     location: 'Germany - Berlin',
     productType: ['PaaS'],
-    imageSrc: 'https://bit.ly/3Rb3DBS',
+    imageSrc: ChocoLogo,
     description:
       'Designed and Built the client notification system with internal monitoring system to ensure the reliability,useability,reusability, scalability.\nThe new system was implemented with CDK, Rest api gateway, State machine, alarms, SNS,SQS, DynamoDB and third parties api such as Twilio, Whatsapp message provider.',
     technologyTags: [

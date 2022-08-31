@@ -30,7 +30,7 @@ export const WorkFlow = () => (
       item
       direction="row"
       justifyContent="center"
-      alignItems="flex-start"
+      alignItems="stretch"
     >
       <Grid
         container
@@ -46,7 +46,7 @@ export const WorkFlow = () => (
         </Timeline>
       </Grid>
 
-      <Grid item sx={{ width: '50%' }}>
+      <Grid item sx={{ width: '50%', zIndex: -1 }}>
         <AgileDiagram />
       </Grid>
     </Grid>

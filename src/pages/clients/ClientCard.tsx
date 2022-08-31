@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { FC, useState } from 'react';
+import { FC, ReactElement, useState } from 'react';
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
@@ -30,7 +30,7 @@ export interface ClientCard {
   name: string;
   location: string;
   productType: ProductType[];
-  imageSrc?: string;
+  imageSrc?: ReactElement;
   description: string;
   technologyTags: Technology[];
   responsibilityTags: Job[];
@@ -58,10 +58,11 @@ export const ClientCard: FC<ClientCard> = ({
       <CardMedia
         component="img"
         height="100%"
-        width="100%"
+        width="95%"
         sx={{
           minHeight: 100,
           maxHeight: 100,
+          margin: 'auto',
           objectFit: 'contain'
         }}
         image={imageSrc ? imageSrc : imageNotFoundReplacement}
